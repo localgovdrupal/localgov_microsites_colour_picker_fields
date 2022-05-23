@@ -1,0 +1,6 @@
+name: Colour Picker Fields
+type: module
+description: Adds a colour picker to certain fields on LGD Microsites.
+package: LocalGov
+core: 8.x
+core_version_requirement: ^8 || ^9

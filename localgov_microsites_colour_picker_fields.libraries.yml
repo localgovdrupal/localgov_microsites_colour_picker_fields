@@ -1,0 +1,9 @@
+# Custom module library for general purposes.
+localgov_microsites_colour_picker_fields:
+  js:
+    js/localgov-microsites-colour-picker-fields.js: {}
+  css:
+    component:
+      css/localgov-microsites-colour-picker-fields.css: {}
+  dependencies:
+    - core/drupalSettings

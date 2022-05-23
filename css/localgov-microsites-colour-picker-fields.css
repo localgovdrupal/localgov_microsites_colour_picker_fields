@@ -1,0 +1,18 @@
+.colour-picker-field {
+  display: flex;
+}
+
+.colour-picker-field__text {
+  width: 175px;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.colour-picker-field__picker {
+  width: 50px;
+  height: auto;
+  border: 1px solid #8e929c;
+  border-radius: 8px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
