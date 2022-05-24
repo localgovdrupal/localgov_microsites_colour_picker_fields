@@ -1,0 +1,17 @@
+{
+  "name": "localgovdrupal/localgov_microsites_colour_picker_fields",
+  "description": "Colour picker integration to enhance LocalGov Microsites configuration management.",
+  "type": "drupal-module",
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "drupal/core": "^9"
+  },
+  "extra": {
+    "enable-patching": true,
+    "patchLevel": {
+      "drupal/core": "-p2"
+    },
+    "patches": {}
+    }
+  }
+}
