@@ -12,6 +12,5 @@
       "drupal/core": "-p2"
     },
     "patches": {}
-    }
   }
 }
