@@ -11,6 +11,13 @@
           let colour = e.target.value
           text.value = colour;
         })
+        if (text.value) {
+          picker.value = text.value;
+        }
+        text.addEventListener('change', (e) => {
+          let colour = text.value
+          picker.value = colour;
+        })
       })
 
     },
