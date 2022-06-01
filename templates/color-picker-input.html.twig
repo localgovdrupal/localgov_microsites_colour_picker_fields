@@ -15,7 +15,7 @@
 {% set random = random(1000) %}
 
 <div class="colour-picker-field">
-  <input{{ attributes.addClass('colour-picker-field__text') }}/>{{ children }}
+  <input{{ attributes.addClass('colour-picker-field__text') }}/>
   <label class="colour-picker-field__label visually-hidden" for="colour-picker--{{ random }}">{{ 'Choose colour'|t }}</label>
   <input name="colour-picker--{{ random }}" type="color" class="colour-picker-field__picker">
 </div>
