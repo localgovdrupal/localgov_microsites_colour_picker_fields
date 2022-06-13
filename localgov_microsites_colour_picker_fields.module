@@ -23,7 +23,10 @@ function localgov_microsites_colour_picker_fields_form_group_microsite_edit_form
   $form['#attached']['library'][] =  'localgov_microsites_colour_picker_fields/localgov_microsites_colour_picker_fields';
   $fields = [
     'lgms_primary_colour',
+    'lgms_primary_colour_contrast',
     'lgms_secondary_colour',
+    'lgms_secondary_colour_contrast',
+    'lgms_page_background_colour',
     'lgms_footer_background_colour',
     'lgms_footer_background_colour',
     'lgms_footer_link_colour',
@@ -43,10 +46,8 @@ function localgov_microsites_colour_picker_fields_form_group_microsite_edit_form
     'lgms_pre_header_link_colour',
     'lgms_pre_header_link_hover',
     'lgms_pre_header_text_colour',
-    'lgms_primary_colour',
-    'lgms_secondary_colour',
-    'lgms_text_colour_dark',
-    'lgms_text_colour_light',
+    'lgms_text_colour',
+    'lgms_link_colour',
   ];
 
   foreach ($fields as $field) {
