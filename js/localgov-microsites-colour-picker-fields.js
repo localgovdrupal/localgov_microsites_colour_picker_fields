@@ -13,15 +13,26 @@
           let colour = item1.value;
           item2.value = colour;
           text.style.border = `5px solid ${colour}`;
+          item.classList.add('colour-picker-field--active');
+          picker.style.height = `60px`;
+          if (text.value) {
+            item.classList.add('colour-picker-field--active');
+          } else {
+            item.classList.remove('colour-picker-field--active');
+          }
         }
 
         if (text.value) {
           handleSetColours();
         }
-        picker.addEventListener('input', (e) => {
+        picker.addEventListener('input', () => {
           handleSetColours(picker, text);
         });
-        text.addEventListener('change', (e) => {
+        picker.addEventListener('click', () => {
+          // item.classList.add('colour-picker-field--active');
+          handleSetColours(picker, text);
+        });
+        text.addEventListener('change', () => {
           handleSetColours();
         });
         
