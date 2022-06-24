@@ -29,7 +29,6 @@
           handleSetColours(picker, text);
         });
         picker.addEventListener('click', () => {
-          // item.classList.add('colour-picker-field--active');
           handleSetColours(picker, text);
         });
         text.addEventListener('change', () => {
