@@ -1,18 +1,34 @@
 .colour-picker-field {
   display: flex;
+  position: relative;
+  width: 300px;
 }
 
 .colour-picker-field__text {
-  width: 175px;
+  width: calc(100% - 50px);
   border-top-right-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
 }
 
 .colour-picker-field__picker {
   width: 50px;
-  height: auto;
+  height: 50px;
   border: 1px solid #8e929c;
   border-radius: 8px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+.colour-picker-field::after {
+  width: 50px;
+  height: 100%;
+  right: 0;
+  content: "";
+  z-index: 1;
+  position: absolute;
+  background-image: linear-gradient(135deg, #eeeeee 48%, red 50%, #eeeeee 52%);
+  pointer-events: none;
+}
+.colour-picker-field--active::after {
+  background-image: none;
 }
