@@ -49,6 +49,10 @@ function localgov_microsites_colour_picker_fields_form_group_microsite_edit_form
     'lgms_pre_header_text_colour',
     'lgms_text_colour',
     'lgms_link_colour',
+    'lgms_submenu_background_colour',
+    'lgms_submenu_link_colour',
+    'lgms_off_canvas_bg_colour',
+    'lgms_off_canvas_text_colour',
   ];
 
   foreach ($fields as $field) {
