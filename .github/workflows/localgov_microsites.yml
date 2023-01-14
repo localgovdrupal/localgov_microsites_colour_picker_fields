@@ -6,10 +6,10 @@ name: Test LocalGov Microsites localgovdrupal/localgov_microsites_colour_picker_
 on:
   push:
     branches:
-      - '1.x'
+      - '2.x'
   pull_request:
     branches:
-      - '1.x'
+      - '2.x'
 
 env:
   LOCALGOV_DRUPAL_PROJECT: localgovdrupal/localgov_microsites_colour_picker_fields
@@ -25,11 +25,10 @@ jobs:
       fail-fast: false
       matrix:
         localgov-version:
-          - '1.x'
+          - '2.x'
         drupal-version:
-          - '~9.3'
+          - '~9.5'
         php-version:
-          - '7.4'
           - '8.1'
 
     steps:
@@ -80,6 +79,11 @@ jobs:
           repository: localgovdrupal/drupal-container
           ref: php${{ matrix.php-version }}
 
+      - name: Authenticate with GitHub
+        run: |
+          composer --working-dir=html config repositories.1 vcs git@github.com:${LOCALGOV_DRUPAL_PROJECT}.git
+          composer global config github-oauth.github.com ${{ github.token }}
+
       - name: Create LocalGov Microsites project
         run: |
           composer create-project --stability dev --no-install localgovdrupal/localgov_microsites_project ./html "${{ matrix.localgov-version }}"
@@ -90,15 +94,17 @@ jobs:
       - name: Obtain the test target using Composer
         if: env.HEAD_USER == 'localgovdrupal'
         run: |
-          composer --working-dir=html config repositories.1 vcs git@github.com:${LOCALGOV_DRUPAL_PROJECT}.git
-          composer global config github-oauth.github.com ${{ github.token }}
-          composer --working-dir=./html require --with-all-dependencies ${LOCALGOV_DRUPAL_PROJECT}:"${COMPOSER_REF} as ${LATEST_RELEASE}"
+          composer --working-dir=./html require --no-install --with-all-dependencies ${LOCALGOV_DRUPAL_PROJECT}:"${COMPOSER_REF} as ${LATEST_RELEASE}"
 
       - name: Obtain the test target using Git
         if: env.HEAD_USER != 'localgovdrupal'
         uses: actions/checkout@v2
         with:
           path: ${{ env.LOCALGOV_DRUPAL_PROJECT_PATH }}
+
+      - name: Composer install
+        run: |
+          composer --working-dir=./html install
 
   phpcs:
     name: Coding standards checks
@@ -109,11 +115,10 @@ jobs:
       fail-fast: false
       matrix:
         localgov-version:
-          - '1.x'
+          - '2.x'
         drupal-version:
-          - '~9.3'
+          - '~9.5'
         php-version:
-          - '7.4'
           - '8.1'
 
     steps:
@@ -145,11 +150,10 @@ jobs:
       fail-fast: false
       matrix:
         localgov-version:
-          - '1.x'
+          - '2.x'
         drupal-version:
-          - '~9.3'
+          - '~9.5'
         php-version:
-          - '7.4'
           - '8.1'
 
     steps:
@@ -180,11 +184,10 @@ jobs:
       fail-fast: false
       matrix:
         localgov-version:
-          - '1.x'
+          - '2.x'
         drupal-version:
-          - '~9.3'
+          - '~9.5'
         php-version:
-          - '7.4'
           - '8.1'
 
     steps:
