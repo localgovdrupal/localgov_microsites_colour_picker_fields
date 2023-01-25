@@ -3,9 +3,6 @@
   "description": "Colour picker integration to enhance LocalGov Microsites configuration management.",
   "type": "drupal-module",
   "license": "GPL-2.0-or-later",
-  "require": {
-    "drupal/core": "^9"
-  },
   "extra": {
     "enable-patching": true,
     "patchLevel": {
