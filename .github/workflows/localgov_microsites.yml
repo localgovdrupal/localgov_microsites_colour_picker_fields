@@ -6,10 +6,11 @@ name: Test LocalGov Microsites localgovdrupal/localgov_microsites_colour_picker_
 on:
   push:
     branches:
-      - '2.x'
+      - '1.x'
   pull_request:
     branches:
-      - '2.x'
+      - '1.x'
+  workflow_dispatch:
 
 env:
   LOCALGOV_DRUPAL_PROJECT: localgovdrupal/localgov_microsites_colour_picker_fields
