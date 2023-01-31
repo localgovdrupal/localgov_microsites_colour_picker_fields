@@ -10,6 +10,7 @@ on:
   pull_request:
     branches:
       - '1.x'
+  workflow_dispatch:
 
 env:
   LOCALGOV_DRUPAL_PROJECT: localgovdrupal/localgov_microsites_colour_picker_fields
@@ -25,11 +26,10 @@ jobs:
       fail-fast: false
       matrix:
         localgov-version:
-          - '1.x'
+          - '2.x'
         drupal-version:
-          - '~9.3'
+          - '~9.5'
         php-version:
-          - '7.4'
           - '8.1'
 
     steps:
@@ -103,6 +103,10 @@ jobs:
         with:
           path: ${{ env.LOCALGOV_DRUPAL_PROJECT_PATH }}
 
+      - name: Composer install
+        run: |
+          composer --working-dir=./html install
+
   phpcs:
     name: Coding standards checks
     needs: build
@@ -112,11 +116,10 @@ jobs:
       fail-fast: false
       matrix:
         localgov-version:
-          - '1.x'
+          - '2.x'
         drupal-version:
-          - '~9.3'
+          - '~9.5'
         php-version:
-          - '7.4'
           - '8.1'
 
     steps:
@@ -148,11 +151,10 @@ jobs:
       fail-fast: false
       matrix:
         localgov-version:
-          - '1.x'
+          - '2.x'
         drupal-version:
-          - '~9.3'
+          - '~9.5'
         php-version:
-          - '7.4'
           - '8.1'
 
     steps:
@@ -183,11 +185,10 @@ jobs:
       fail-fast: false
       matrix:
         localgov-version:
-          - '1.x'
+          - '2.x'
         drupal-version:
-          - '~9.3'
+          - '~9.5'
         php-version:
-          - '7.4'
           - '8.1'
 
     steps:
